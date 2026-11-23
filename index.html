@@ -245,8 +245,17 @@
   .youwin { font-size: clamp(18px, 4.6vw, 24px); margin-top: 14px; opacity: 0; transform: translateY(10px); transition: .5s .35s; }
   .youwin b { color: var(--accent); font-weight: 600; }
   .win .youwin { opacity: 1; transform: none; }
-  .slot-cta { display: flex; justify-content: center; gap: 10px; margin-top: 22px; flex-wrap: wrap; opacity: 0; transition: .5s .6s; }
+  .slot-cta { margin-top: 10px; opacity: 0; transition: .5s .6s; }
   .win .slot-cta { opacity: 1; }
+  .toast { position: absolute; top: 16px; left: 50%; width: min(92vw, 420px); transform: translate(-50%, -160%); z-index: 4; display: flex; gap: 12px; align-items: center; text-align: left; padding: 12px 14px; border-radius: 20px; background: rgba(30,30,40,.82); backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.1); box-shadow: 0 20px 50px rgba(0,0,0,.5); transition: transform .6s cubic-bezier(.2,1.3,.4,1); font-size: 14px; line-height: 1.35; }
+  .win2 .toast { transform: translate(-50%, 0); }
+  .toast .ic { flex: none; width: 40px; height: 40px; border-radius: 11px; background: linear-gradient(135deg, var(--accent), #6ef2c7); display: grid; place-items: center; font: 700 15px Unbounded, sans-serif; color: #0b0b10; }
+  .toast small { color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; }
+  .toast b { color: var(--accent); }
+  .offer { display: block; width: 100%; margin-top: 22px; padding: 18px 20px; border: 0; border-radius: 18px; font: 700 clamp(20px, 5.4vw, 28px) Unbounded, sans-serif; letter-spacing: .02em; color: #2a1600; background: linear-gradient(180deg, #fff3a6, #ffd23a 45%, #f0a500); box-shadow: 0 8px 0 #a86a00, 0 18px 40px rgba(255,190,30,.45), inset 0 2px 0 rgba(255,255,255,.7); cursor: pointer; animation: pulse 1s ease-in-out infinite; }
+  @keyframes pulse { 50% { transform: scale(1.04); } }
+  .tnc { margin-top: 12px; font-size: 11px; color: var(--muted); }
+  .slot-cta a.btn-ghost { margin-top: 4px; }
   .slot-skip { position: absolute; top: 18px; right: 18px; z-index: 3; background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 999px; padding: 8px 16px; font: 500 13px Inter, sans-serif; cursor: pointer; }
   .coin { position: absolute; top: -40px; width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff6c2, #ffd23a 40%, #c98a00 75%); box-shadow: inset 0 -3px 0 rgba(0,0,0,.25), 0 0 12px rgba(255,200,40,.5); z-index: 1; animation: fall linear forwards; }
   @keyframes fall { to { transform: translateY(115vh) rotate(720deg); } }
@@ -258,6 +267,7 @@
 <body>
 <div class="slot-intro" id="slot" aria-label="Intro">
   <button class="slot-skip" id="slot-skip">Skip ›</button>
+  <div class="toast" role="status"><span class="ic">NK</span><div><small><span>talakhomenko-code.github.io</span><span>now</span></small>New transfer received<br><b>+1 Motion Designer</b> added to your team</div></div>
   <div class="slot-box">
     <div class="slot-top">Nataliia Khomenko · iGaming motion</div>
     <div class="machine">
@@ -266,7 +276,7 @@
     </div>
     <div class="jackpot">JACKPOT!</div>
     <p class="youwin">You win: <b>I'm in your team.</b></p>
-    <div class="slot-cta"><a class="btn btn-primary" href="#top" id="slot-collect">Collect the win</a><a class="btn btn-ghost" href="mailto:tala.khomenko.s@gmail.com">Email me</a></div>
+    <div class="slot-cta" style="display:block"><a class="offer" href="mailto:tala.khomenko.s@gmail.com?subject=Offer%20for%20Nataliia%20%E2%80%94%20iGaming%20Motion%20Designer">MAKE AN OFFER</a><p class="tnc">No deposit required · 100% motion design · Hire responsibly. 18+</p><a class="btn btn-ghost" href="#top" id="slot-collect">See the portfolio ›</a></div>
   </div>
 </div>
 
@@ -582,6 +592,7 @@ hero.addEventListener('click', () => { heroVideo.pause(); playVideo(hero.dataset
   };
   const win = () => {
     el.classList.add('win');
+    setTimeout(() => el.classList.add('win2'), reduced ? 0 : 1100);
     if (reduced) return;
     for (let k = 0; k < 36; k++) {
       const c = document.createElement('i'); c.className = 'coin';
