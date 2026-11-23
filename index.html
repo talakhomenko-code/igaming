@@ -224,10 +224,51 @@
   .flow p { color: var(--muted); font-size: 14px; }
   @media (max-width: 1000px) { .flow { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .flow { grid-template-columns: 1fr; } }
+
+  /* slot intro */
+  .slot-intro { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: radial-gradient(ellipse at 50% 35%, #2a1660 0%, #0b0b10 62%); transition: opacity .6s, visibility .6s; overflow: hidden; }
+  .slot-intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+  .slot-box { width: min(92vw, 560px); text-align: center; position: relative; z-index: 2; }
+  .slot-top { font-family: Unbounded, sans-serif; font-size: clamp(14px, 3.4vw, 18px); color: var(--muted); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 18px; }
+  .machine { position: relative; padding: 18px; border-radius: 30px; background: linear-gradient(180deg, #2b2440, #15121f); border: 2px solid #3b3155; box-shadow: 0 0 0 6px #120f1a, 0 30px 90px -20px rgba(139,92,255,.7), inset 0 2px 0 rgba(255,255,255,.08); }
+  .reels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .reel { position: relative; height: clamp(110px, 30vw, 160px); overflow: hidden; border-radius: 16px; background: linear-gradient(180deg, #0e0c15, #1b1728 50%, #0e0c15); box-shadow: inset 0 10px 18px rgba(0,0,0,.7), inset 0 -10px 18px rgba(0,0,0,.7); }
+  .strip { position: absolute; left: 0; right: 0; top: 0; will-change: transform; }
+  .sym { height: clamp(110px, 30vw, 160px); display: grid; place-items: center; }
+  .sym svg { width: 72%; height: 72%; filter: drop-shadow(0 6px 10px rgba(0,0,0,.5)); }
+  .reel.blur .strip { filter: blur(2px); }
+  .payline { position: absolute; left: 8px; right: 8px; top: 50%; height: 3px; transform: translateY(-50%); background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0; z-index: 3; box-shadow: 0 0 14px var(--accent); transition: opacity .3s; }
+  .win .payline { opacity: 1; animation: blink .5s 4 alternate; }
+  @keyframes blink { to { opacity: .25; } }
+  .jackpot { font-family: Unbounded, sans-serif; font-weight: 700; font-size: clamp(38px, 11vw, 74px); line-height: 1; margin-top: 26px; background: linear-gradient(90deg, #ffd84a, #fff3b0 40%, #ffb100); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 24px rgba(255,200,40,.55)); transform: scale(.4); opacity: 0; transition: transform .5s cubic-bezier(.2,1.6,.4,1), opacity .3s; }
+  .win .jackpot { transform: scale(1); opacity: 1; }
+  .youwin { font-size: clamp(18px, 4.6vw, 24px); margin-top: 14px; opacity: 0; transform: translateY(10px); transition: .5s .35s; }
+  .youwin b { color: var(--accent); font-weight: 600; }
+  .win .youwin { opacity: 1; transform: none; }
+  .slot-cta { display: flex; justify-content: center; gap: 10px; margin-top: 22px; flex-wrap: wrap; opacity: 0; transition: .5s .6s; }
+  .win .slot-cta { opacity: 1; }
+  .slot-skip { position: absolute; top: 18px; right: 18px; z-index: 3; background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 999px; padding: 8px 16px; font: 500 13px Inter, sans-serif; cursor: pointer; }
+  .coin { position: absolute; top: -40px; width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff6c2, #ffd23a 40%, #c98a00 75%); box-shadow: inset 0 -3px 0 rgba(0,0,0,.25), 0 0 12px rgba(255,200,40,.5); z-index: 1; animation: fall linear forwards; }
+  @keyframes fall { to { transform: translateY(115vh) rotate(720deg); } }
+  @media (prefers-reduced-motion: reduce) { .coin { display: none; } }
 </style>
+
 
 </head>
 <body>
+<div class="slot-intro" id="slot" aria-label="Intro">
+  <button class="slot-skip" id="slot-skip">Skip ›</button>
+  <div class="slot-box">
+    <div class="slot-top">Nataliia Khomenko · iGaming motion</div>
+    <div class="machine">
+      <div class="reels"><div class="reel"><div class="strip"></div></div><div class="reel"><div class="strip"></div></div><div class="reel"><div class="strip"></div></div></div>
+      <div class="payline"></div>
+    </div>
+    <div class="jackpot">JACKPOT!</div>
+    <p class="youwin">You win: <b>I'm in your team.</b></p>
+    <div class="slot-cta"><a class="btn btn-primary" href="#top" id="slot-collect">Collect the win</a><a class="btn btn-ghost" href="mailto:tala.khomenko.s@gmail.com">Email me</a></div>
+  </div>
+</div>
 
 <nav>
   <div class="wrap">
@@ -502,5 +543,61 @@ document.querySelectorAll('.concept img').forEach(img => img.addEventListener('c
 const hero = document.querySelector('.hero-reel'), heroVideo = hero.querySelector('video');
 hero.addEventListener('click', () => { heroVideo.pause(); playVideo(hero.dataset.file); });
 </script>
+<script>
+(() => {
+  const el = document.getElementById('slot'); if (!el) return;
+  let seen = false; try { seen = sessionStorage.getItem('slotSeen') === '1'; } catch (e) {}
+  const close = () => { el.classList.add('gone'); document.body.style.overflow = ''; try { sessionStorage.setItem('slotSeen', '1'); } catch (e) {} };
+  if (seen) { el.remove(); return; }
+  document.body.style.overflow = 'hidden';
+  const S = {
+    seven: '<svg viewBox="0 0 100 100"><defs><linearGradient id="g7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6b6b"/><stop offset="1" stop-color="#c3002f"/></linearGradient></defs><path d="M22 18h58v14L52 86H34l28-52H22z" fill="url(#g7)" stroke="#ffd23a" stroke-width="5" stroke-linejoin="round"/></svg>',
+    cherry: '<svg viewBox="0 0 100 100"><path d="M50 14c-6 18-16 30-24 44M50 14c4 20 12 32 24 40" stroke="#3fa34d" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M50 14c10-6 22-4 28 4-10 4-20 4-28-4z" fill="#56c46a"/><circle cx="28" cy="68" r="17" fill="#e0123a"/><circle cx="72" cy="62" r="17" fill="#ff2950"/><circle cx="22" cy="62" r="5" fill="#fff" opacity=".6"/><circle cx="66" cy="56" r="5" fill="#fff" opacity=".6"/></svg>',
+    bell: '<svg viewBox="0 0 100 100"><path d="M50 14c-18 0-26 16-26 32v14l-8 10h68l-8-10V46c0-16-8-32-26-32z" fill="#ffd23a" stroke="#c98a00" stroke-width="4"/><circle cx="50" cy="80" r="8" fill="#c98a00"/><path d="M36 30c4-6 10-8 14-8" stroke="#fff6c2" stroke-width="5" fill="none" stroke-linecap="round"/></svg>',
+    bar: '<svg viewBox="0 0 100 100"><rect x="10" y="30" width="80" height="40" rx="8" fill="#15121f" stroke="#c6ff3d" stroke-width="5"/><text x="50" y="60" text-anchor="middle" font-family="Unbounded,Arial Black,sans-serif" font-weight="700" font-size="26" fill="#c6ff3d">BAR</text></svg>',
+    diamond: '<svg viewBox="0 0 100 100"><path d="M50 86 12 38l14-18h48l14 18z" fill="#6ef2ff" stroke="#2bb8d6" stroke-width="4" stroke-linejoin="round"/><path d="M12 38h76M38 20l12 66 12-66M26 20l12 18M74 20 62 38" stroke="#2bb8d6" stroke-width="3" fill="none"/></svg>',
+    bolt: '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#8b5cff"/><path d="M56 16 30 56h18l-6 28 28-42H52z" fill="#fff3b0" stroke="#ffd23a" stroke-width="3" stroke-linejoin="round"/></svg>'
+  };
+  const order = ['cherry', 'bell', 'bar', 'diamond', 'bolt', 'seven'];
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reels = [...el.querySelectorAll('.reel')];
+  const N = 24;
+  reels.forEach((r, i) => {
+    const strip = r.querySelector('.strip');
+    let html = '';
+    for (let k = 0; k < N; k++) html += `<div class="sym">${S[order[(k + i * 2) % order.length]]}</div>`;
+    html += `<div class="sym">${S.seven}</div>`;
+    strip.innerHTML = html;
+  });
+  const spin = () => {
+    reels.forEach((r, i) => {
+      const strip = r.querySelector('.strip'); const h = r.clientHeight;
+      const dur = reduced ? 0 : 1.6 + i * 0.45;
+      r.classList.add('blur');
+      strip.style.transition = `transform ${dur}s cubic-bezier(.15,.7,.2,1.04)`;
+      strip.style.transform = `translateY(${-N * h}px)`;
+      setTimeout(() => r.classList.remove('blur'), dur * 1000 - 250);
+    });
+    setTimeout(win, reduced ? 50 : (1.6 + 2 * 0.45) * 1000 + 100);
+  };
+  const win = () => {
+    el.classList.add('win');
+    if (reduced) return;
+    for (let k = 0; k < 36; k++) {
+      const c = document.createElement('i'); c.className = 'coin';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.animationDuration = 1.6 + Math.random() * 1.6 + 's';
+      c.style.animationDelay = Math.random() * 0.8 + 's';
+      const sz = 18 + Math.random() * 22; c.style.width = c.style.height = sz + 'px';
+      el.appendChild(c);
+    }
+  };
+  document.getElementById('slot-skip').addEventListener('click', close);
+  document.getElementById('slot-collect').addEventListener('click', e => { e.preventDefault(); close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') close(); }, { once: true });
+  requestAnimationFrame(() => setTimeout(spin, 350));
+})();
+</script>
+
 </body>
 </html>
