@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nataliia Khomenko — iGaming Motion Designer</title>
+<meta name="description" content="iGaming motion designer: slot and casino UA creatives, win FX, game UI animation and AI localization for 15+ markets.">
+<meta property="og:title" content="Nataliia Khomenko — iGaming Motion Designer">
+<meta property="og:description" content="Hooks, slot UI, win FX and AI localization for 15+ markets. In-house iGaming UA at Phoraon and Sion.">
+<meta property="og:image" content="media/showreel.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0b10;
+    --surface: #15151d;
+    --surface-2: #1d1d28;
+    --line: #2a2a38;
+    --text: #f2f2f7;
+    --muted: #9a9ab0;
+    --accent: #c6ff3d;
+    --accent-2: #8b5cff;
+    --radius: 18px;
+    --max: 1180px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font: 16px/1.6 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  a { color: inherit; text-decoration: none; }
+  img, video { display: block; max-width: 100%; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: Unbounded, Inter, sans-serif; line-height: 1.1; letter-spacing: -0.02em; }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 78%, transparent); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .logo { font-family: Unbounded, sans-serif; font-weight: 700; font-size: 15px; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; transition: transform .2s, background .2s; white-space: nowrap; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: #0b0b10; }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { background: var(--surface-2); }
+  nav .btn { padding: 9px 18px; font-size: 14px; }
+
+  /* hero */
+  .hero { padding: 72px 0 56px; position: relative; }
+  .hero::before { content: ""; position: absolute; inset: -200px -20% auto auto; width: 720px; height: 720px; background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 35%, transparent), transparent 65%); pointer-events: none; z-index: -1; }
+  .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 56px; align-items: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; margin-bottom: 28px; }
+  .eyebrow i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+  .hero h1 { font-size: clamp(40px, 6.4vw, 78px); margin-bottom: 24px; }
+  .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent), #6ef2c7 50%, var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { font-size: 19px; color: var(--muted); max-width: 560px; margin-bottom: 32px; }
+  .hero p.lead b { color: var(--text); font-weight: 500; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero-reel { position: relative; aspect-ratio: 9 / 16; max-height: 640px; margin-left: auto; border-radius: 28px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 40px 120px -30px color-mix(in srgb, var(--accent-2) 60%, transparent); background: var(--surface); cursor: pointer; }
+  .hero-reel video { width: 100%; height: 100%; object-fit: cover; }
+  .hero-reel .tag { position: absolute; left: 14px; bottom: 14px; background: rgba(0,0,0,.6); backdrop-filter: blur(8px); padding: 6px 12px; border-radius: 999px; font-size: 12px; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: 64px; }
+  .stat { background: var(--bg); padding: 24px; }
+  .stat b { display: block; font-family: Unbounded, sans-serif; font-size: 30px; color: var(--accent); margin-bottom: 4px; }
+  .stat span { color: var(--muted); font-size: 14px; }
+
+  /* sections */
+  section { padding: 72px 0; }
+  .sec-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: clamp(28px, 3.6vw, 42px); }
+  .sec-head p { color: var(--muted); max-width: 460px; }
+  .num { font-family: Unbounded, sans-serif; color: var(--accent); font-size: 14px; display: block; margin-bottom: 12px; }
+
+  /* featured cards */
+  .featured { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+  #products .featured { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  #products .featured:not(.brand) { grid-template-columns: repeat(3, 1fr); }
+  @media (min-width: 1000px) { #products .featured:not(.brand) { grid-template-columns: repeat(6, 1fr); gap: 16px; } #products .featured:not(.brand) .card-body { padding: 14px 14px 16px; } #products .featured:not(.brand) .card-body p { font-size: 13px; } }
+  @media (max-width: 640px) { #products .featured:not(.brand) { grid-template-columns: repeat(2, 1fr); } }
+  #products .featured.brand { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); align-items: start; }
+  .brand .media img[src*="poster"] { cursor: zoom-in; }
+  .grid.pstatic { columns: 3 240px; }
+  .grid.pstatic .media { cursor: zoom-in; }
+  .grid.pstatic .badge.on-media { left: auto; right: 10px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; }
+  .card:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); transform: translateY(-4px); }
+  .media { position: relative; background: #000; cursor: pointer; overflow: hidden; }
+  .media img, .media video { width: 100%; height: 100%; object-fit: cover; }
+  .media video { position: absolute; inset: 0; opacity: 0; transition: opacity .25s; }
+  .media.playing video { opacity: 1; }
+  .play { position: absolute; right: 12px; bottom: 12px; width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,.55); backdrop-filter: blur(6px); display: grid; place-items: center; border: 1px solid rgba(255,255,255,.2); }
+  .play::after { content: ""; border-left: 13px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
+  .dur { position: absolute; left: 12px; top: 12px; font-size: 12px; background: rgba(0,0,0,.55); padding: 3px 9px; border-radius: 999px; }
+  .card-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .card-body h3 { font-size: 16px; }
+  .card-body p { color: var(--muted); font-size: 14px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .tags span { font-size: 12px; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: #cfcfe0; }
+
+  /* masonry grid for creatives */
+  .grid { columns: 4 220px; column-gap: 16px; }
+  .grid .card { break-inside: avoid; margin-bottom: 16px; }
+  .grid .card-body { padding: 14px 14px 16px; gap: 6px; }
+  .grid .card-body h3 { font-size: 14px; }
+  .grid .card-body p { font-size: 13px; }
+  .static .media { cursor: zoom-in; }
+
+  .note { color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+  .sub-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 24px; flex-wrap: wrap; margin: 56px 0 20px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .sub-head h3 { font-size: 20px; }
+  .sub-head p { color: var(--muted); font-size: 14px; max-width: 460px; }
+  .igaming { background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--surface) 70%, transparent) 12%, transparent); }
+  .igaming .sec-head + .sub-head { margin-top: 8px; }
+
+  /* AI visuals: one wide + two tall */
+  .visuals { display: grid; grid-template-columns: 2.6fr 1fr 1fr; gap: 16px; align-items: stretch; }
+  .visuals .card .media { height: 100%; aspect-ratio: auto !important; cursor: zoom-in; }
+  .visuals .card:first-child .media { aspect-ratio: 16/9 !important; }
+  @media (max-width: 900px) { .visuals { grid-template-columns: 1fr 1fr; } .visuals .card:first-child { grid-column: 1 / -1; } .visuals .card .media { aspect-ratio: 9/16 !important; } }
+
+  /* badges */
+  .badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .b-ai { background: var(--accent-2); color: #fff; }
+  .b-hand { background: var(--accent); color: #0b0b10; }
+  .b-hybrid { background: linear-gradient(90deg, var(--accent-2), #6ef2c7 60%, var(--accent)); color: #0b0b10; }
+  .badge.on-media { position: absolute; left: 10px; top: 10px; z-index: 2; box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+  .media .dur { display: none; }
+
+  /* generate x craft */
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pillar { position: relative; border-radius: var(--radius); padding: 28px; border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
+  .pillar::before { content: ""; position: absolute; inset: -40% -30% auto auto; width: 320px; height: 320px; border-radius: 50%; opacity: .22; filter: blur(30px); pointer-events: none; }
+  .pillar-ai::before { background: var(--accent-2); }
+  .pillar-hand::before { background: var(--accent); }
+  .pillar h3 { font-size: 24px; margin: 16px 0 14px; }
+  .pillar ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .pillar li { color: #cfcfe0; font-size: 15px; padding-left: 22px; position: relative; }
+  .pillar li::before { content: "→"; position: absolute; left: 0; color: var(--muted); }
+  .legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 20px; color: var(--muted); font-size: 13px; }
+  .legend .badge { margin-left: 8px; }
+  .legend .badge:first-child { margin-left: 0; }
+  @media (max-width: 760px) { .duo { grid-template-columns: 1fr; } }
+
+  /* concept art */
+  .concept { position: relative; margin: 0 0 16px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #0e1116; }
+  .concept img { width: 100%; height: auto; cursor: zoom-in; }
+  .concept figcaption { padding: 12px 16px; font-size: 14px; color: var(--muted); background: var(--surface); }
+
+  /* ai stack */
+  .stack { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-bottom: 20px; }
+  .stack-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 16px 20px; border-top: 1px solid var(--line); background: var(--surface); }
+  .stack-row:first-child { border-top: 0; }
+  .stack-row b { font-family: Unbounded, sans-serif; font-weight: 500; font-size: 15px; min-width: 190px; }
+  .stack-row .m { font-size: 13px; padding: 4px 12px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--accent-2) 60%, var(--line)); background: color-mix(in srgb, var(--accent-2) 14%, transparent); }
+  .stack-row em { font-style: normal; color: var(--muted); font-size: 13px; margin-left: auto; }
+  @media (max-width: 700px) { .stack-row b { min-width: 100%; } .stack-row em { margin-left: 0; width: 100%; } }
+
+  /* about */
+  .strengths { display: flex; flex-wrap: wrap; gap: 8px; margin: -4px 0 18px; }
+  .strengths span { font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line)); color: var(--accent); }
+  .about { display: grid; grid-template-columns: .8fr 1.15fr .85fr; gap: 40px; align-items: start; }
+  .about-photo { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4 / 5; box-shadow: 0 30px 80px -40px color-mix(in srgb, var(--accent-2) 60%, transparent); }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 1100px) { .about { grid-template-columns: .8fr 1.2fr; } .timeline { grid-column: 1 / -1; } }
+  .about-text p { color: var(--muted); font-size: 17px; margin-bottom: 18px; max-width: 580px; }
+  .about-text p.big { font-family: Unbounded, sans-serif; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.25; color: var(--text); }
+  .timeline { list-style: none; border-left: 1px solid var(--line); padding-left: 24px; display: flex; flex-direction: column; gap: 22px; }
+  .timeline li { position: relative; display: flex; flex-direction: column; gap: 2px; }
+  .timeline li::before { content: ""; position: absolute; left: -29px; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .timeline b { font-family: Unbounded, sans-serif; font-size: 13px; color: var(--accent); font-weight: 500; }
+  .timeline span { font-weight: 600; }
+  .timeline em { font-style: normal; color: var(--muted); font-size: 14px; }
+  @media (max-width: 700px) { .about { grid-template-columns: 1fr; gap: 32px; } .about-photo { max-width: 360px; } }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .skill { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .skill h3 { font-size: 16px; margin-bottom: 14px; }
+  .skill ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill li { font-size: 13px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); }
+  .markets { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--muted); font-size: 14px; }
+  .markets b { color: var(--text); font-weight: 600; margin-right: 6px; }
+  .markets span { padding: 4px 10px; border-radius: 8px; background: var(--surface-2); color: var(--text); font-size: 13px; font-weight: 500; }
+
+  /* contact */
+  .contact { text-align: center; padding: 96px 0; border-top: 1px solid var(--line); }
+  .contact h2 { font-size: clamp(32px, 5vw, 60px); margin-bottom: 18px; }
+  .contact p { color: var(--muted); margin-bottom: 32px; font-size: 18px; }
+  .contact .cta { justify-content: center; }
+  footer { color: var(--muted); font-size: 13px; padding: 28px 0 40px; text-align: center; }
+
+  /* lightbox */
+  .lb { position: fixed; inset: 0; z-index: 50; background: rgba(5,5,8,.92); display: none; align-items: center; justify-content: center; padding: 24px; }
+  .lb.open { display: flex; }
+  .lb video, .lb img { max-width: 100%; max-height: 90vh; border-radius: 16px; }
+  .lb button { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 22px; cursor: pointer; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hero { padding-top: 40px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-reel { margin: 0 auto; width: min(100%, 340px); }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 16px; }
+    section { padding: 56px 0; }
+    .grid { columns: 2; column-gap: 10px; }
+    .grid .card { margin-bottom: 10px; }
+    .grid .card-body { display: none; }
+    .stat b { font-size: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+  /* workflow */
+  .flow { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .flow li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .flow b { font-family: Unbounded, sans-serif; color: var(--accent); font-size: 13px; font-weight: 500; }
+  .flow h3 { font-size: 17px; margin: 10px 0 8px; }
+  .flow p { color: var(--muted); font-size: 14px; }
+  @media (max-width: 1000px) { .flow { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .flow { grid-template-columns: 1fr; } }
+</style>
+
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Nataliia Khomenko<span>.</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#skills">AI stack</a>
+      <a href="#about">About</a>
+      <a href="cv.html">CV</a>
+    </div>
+    <a class="btn btn-primary" href="mailto:tala.khomenko.s@gmail.com">Hire me</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow"><i></i>iGaming motion · Open to full-time · Remote · Kyiv</span>
+        <h1>Hooks. Win&nbsp;FX.<br><em>15+ markets.</em></h1>
+        <p class="lead">Motion designer for <b>iGaming user acquisition</b>. In-house at Phoraon and Sion I made hooks, slot UI animation, win sequences and end cards — then <b>localized one creative into 15+ markets</b> with AI voice and lip-sync. I treat creatives as a system: variables, variations, tests.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="mailto:tala.khomenko.s@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://t.me/Tala10000100101" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/natalia-khomenko-875616333/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="Nataliia_Khomenko_CV_iGaming.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        </div>
+      </div>
+      <div class="hero-reel" data-file="showreel">
+        <video src="media/showreel.mp4" poster="media/showreel.jpg" muted loop playsinline autoplay preload="metadata"></video>
+        <span class="tag">▶ Showreel 2026 · tap to watch</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>3+ yrs</b><span>in motion design</span></div>
+      <div class="stat"><b>15+</b><span>markets &amp; languages localized</span></div>
+      <div class="stat"><b>In-house</b><span>iGaming UA at Phoraon &amp; Sion</span></div>
+      <div class="stat"><b>AI + AE</b><span>generated footage, finished by hand</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="work" class="igaming">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="num">01</span><h2>Slot &amp; casino creatives</h2></div>
+        <p>2025 – 2026 · Phoraon, Sion. High-volume video for user acquisition: hooks, game UI animated from scratch, FX, win sequences and end cards — in 9:16, 4:5 and 1:1.</p>
+      </div>
+      <div class="grid" data-list="performance"></div>
+
+      <div class="sub-head"><h3>AI avatars &amp; localization</h3><p>One creative, many markets: AI talking heads, voice cloning and lip-synced dubbing instead of reshoots.</p></div>
+      <div class="featured" data-list="ai"></div>
+
+      <div class="sub-head"><h3>Static banners by GEO</h3><p>Banner sets adapted per country and language — UK, DE, CH, FR, NL, PL.</p></div>
+      <div class="grid static" data-list="static"></div>
+
+      <div class="sub-head"><h3>Affiliate &amp; employer brand</h3><p>Big Betty Partners — a retro character campaign for an affiliate program, rigged and animated by hand. Plus a recruitment promo for Sion's performance marketing team.</p></div>
+      <div class="featured brand" data-list="brand"></div>
+
+      <p class="note">18+. Gambling creatives are shown for portfolio purposes only.</p>
+    </div>
+  </section>
+
+  <section id="workflow">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="num">02</span><h2>How I work</h2></div>
+        <p>A creative is a set of variables. I build them so the buying team gets clean tests and fast iterations — not random edits.</p>
+      </div>
+      <ol class="flow">
+        <li><b>01</b><h3>Hook &amp; brief</h3><p>The first 1–3 seconds decide everything. I start from the hook and the game's strongest mechanic — bonus, multiplier, big win.</p></li>
+        <li><b>02</b><h3>Variables</h3><p>Hook × game footage × offer × CTA × format. Each one is a separate layer, so it can be swapped without rebuilding the video.</p></li>
+        <li><b>03</b><h3>Variations</h3><p>A matrix of variations for A/B tests, consistently named and tracked, so it's clear what changed and what won.</p></li>
+        <li><b>04</b><h3>Localization</h3><p>Captions, AI voice and lip-sync per GEO. One master creative becomes 15+ market versions in a fraction of reshoot time.</p></li>
+        <li><b>05</b><h3>Handoff</h3><p>Every platform's specs, safe zones and file sizes. Clean exports, ready to upload.</p></li>
+      </ol>
+      <div class="duo" style="margin-top:20px">
+        <div class="pillar pillar-ai">
+          <span class="badge b-ai">AI</span>
+          <h3>I generate</h3>
+          <ul>
+            <li>AI presenters, UGC-style avatars and lip-synced talking heads</li>
+            <li>Voice cloning and AI dubbing for multi-GEO localization</li>
+            <li>Scenes, start frames and key visuals with consistent characters</li>
+            <li>Upscaling, relighting and retouching generated frames</li>
+          </ul>
+        </div>
+        <div class="pillar pillar-hand">
+          <span class="badge b-hand">Hand-crafted</span>
+          <h3>I build by hand</h3>
+          <ul>
+            <li>Slot and game UI animated from scratch — reels, counters, buttons</li>
+            <li>FX: lightning, glow, particles, coin showers, win sequences</li>
+            <li>Kinetic typography, offers, timers and end cards</li>
+            <li>Static banner sets per GEO in Photoshop and Illustrator</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="num">03</span><h2>AI stack &amp; tools</h2></div>
+        <p>The platforms and models I use in production — and the classic tools I finish everything in.</p>
+      </div>
+      <div class="stack">
+        <div class="stack-row"><b>Google Flow</b><span class="m">Veo 3.1</span><span class="m">Nano Banana 2.1</span><em>video, image edit, AI presenters</em></div>
+        <div class="stack-row"><b>Kling</b><span class="m">Kling video</span><em>image-to-video, character scenes</em></div>
+        <div class="stack-row"><b>Freepik / Magnific</b><span class="m">Seedance</span><span class="m">Magnific upscaler &amp; relight</span><em>cinematic shots, upscaling</em></div>
+        <div class="stack-row"><b>Higgsfield</b><span class="m">Camera presets</span><span class="m">AI avatars</span><em>camera moves, UGC-style video</em></div>
+        <div class="stack-row"><b>PixVerse</b><span class="m">Lip Sync</span><em>talking heads, dubbing</em></div>
+        <div class="stack-row"><b>ElevenLabs</b><span class="m">Voice cloning</span><span class="m">Multilingual TTS</span><em>voice-over and localization</em></div>
+        <div class="stack-row"><b>Sora · Hailuo · Flux · Runway · Midjourney</b><em>video, stills, look development</em></div>
+      </div>
+      <div class="skills">
+        <div class="skill"><h3>Motion &amp; edit</h3><ul><li>After Effects</li><li>Premiere Pro</li><li>Media Encoder</li><li>Deep Glow</li><li>FX Console</li><li>Animation Composer</li></ul></div>
+        <div class="skill"><h3>Design</h3><ul><li>Photoshop</li><li>Illustrator</li><li>Figma</li><li>Slot &amp; game UI</li><li>Kinetic captions</li></ul></div>
+        <div class="skill"><h3>Performance</h3><ul><li>Hooks</li><li>A/B variations</li><li>Variation matrices</li><li>GEO localization</li><li>Platform specs</li></ul></div>
+      </div>
+      <div class="markets"><b>Localized for</b>
+        <span>UK</span><span>DE</span><span>CH</span><span>FR</span><span>NL</span><span>IT</span><span>ES</span><span>PT</span><span>PL</span><span>GR</span><span>TR</span><span>NO</span><span>IN</span><span>Arabic</span><span>AU</span><span>MY</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="num">04</span><h2>About</h2></div>
+      </div>
+      <div class="about">
+        <figure class="about-photo"><img src="media/portrait.jpg" alt="Nataliia Khomenko" width="768" height="960" loading="lazy"></figure>
+        <div class="about-text">
+          <p class="big">An artist's eye. A systems brain.</p>
+          <div class="strengths"><span>Speed &amp; volume</span><span>Attention to detail</span><span>Color &amp; perception</span></div>
+          <p>I know why a creative makes people stop scrolling. Before motion I taught painting, composition and color theory at university and designed my own courses on color psychology and stylization — how people perceive an image, and what makes them act on it.</p>
+          <p>Now I apply that in performance: in-house iGaming creatives for user acquisition at Phoraon and Sion — hooks, game UI, win FX and localization for 15+ markets. I like the systematic side of the job: breaking a creative into variables, building variation sets and keeping everything tracked.</p>
+        </div>
+        <ol class="timeline">
+          <li><b>2025 – 2026</b><span>Motion designer — Phoraon, Sion</span><em>In-house iGaming UA creatives · localization for 15+ markets</em></li>
+          <li><b>2024 – now</b><span>Spec projects</span><em>Affiliate character campaign, app-install ads and statics</em></li>
+          <li><b>2019 – 2024</b><span>Lecturer — painting, composition, color</span><em>Borys Grinchenko Kyiv University</em></li>
+          <li><b>10+ years</b><span>Fine artist — sculpture &amp; painting</span></li>
+          <li><b>2017 – 2018</b><span>BFA in Fine Arts · Master's in Art Education</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Let's make your next <em style="font-style:normal;color:var(--accent)">winning creative</em></h2>
+      <p>Available for full-time roles in iGaming and performance marketing.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="mailto:tala.khomenko.s@gmail.com">tala.khomenko.s@gmail.com</a>
+        <a class="btn btn-ghost" href="https://t.me/Tala10000100101" target="_blank" rel="noopener">Telegram</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/natalia-khomenko-875616333/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="Nataliia_Khomenko_CV_iGaming.pdf" target="_blank" rel="noopener">Download CV</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Nataliia Khomenko · Motion Designer · 18+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true"><button aria-label="Close">×</button><div id="lb-body"></div></div>
+
+<script>
+const V = (file, title, desc, tags, ratio = '9/16') => ({ type: 'video', file, title, desc, tags, ratio });
+const I = (file, title, ratio = '1/1') => ({ type: 'image', file, title, ratio });
+
+const DATA = {
+  performance: [
+    V('02-01-thunder-coins-xxl', 'Thunder Coins XXL', 'Lightning FX, hold & win and total-win sequence.', ['FX', 'Slot UI']),
+    V('02-02-more-energy-coins', 'More Energy Coins', 'Coin shower and win counter build-up.', ['Particles']),
+    V('02-05-tower-rush', 'Tower Rush', 'Tower build-up, bonus game and payout reveal.', ['Game UI']),
+    V('02-03-coin-strike', 'Coin Strike — timer offer', 'Countdown offer with animated bonus plates.', ['Offer']),
+    V('02-04-coin-strike', 'Coin Strike — badges', 'Glowing message badges and electric end card.', ['Glow']),
+    V('02-08-brick-house-bonanza', 'Brick House Bonanza', 'Slot promo for the Norwegian market: bonus, win sequence and payout notification.', ['NO', '4:5'], '4/5'),
+    V('02-06-chicken-road-2', 'Chicken Road 2 — wheel', 'Wheel spin, stickers and motion plates.', ['Stickers']),
+    V('02-07-sweet-bonanza-1x1', 'Sweet Bonanza', 'Square format with streamer reaction.', ['1:1'], '1/1'),
+    V('02-10-chicken-road-gameplay-9x16', 'Chicken Road — gameplay', 'Game UI animated from scratch, 9:16.', ['UI animation']),
+    V('02-09-chicken-road-gameplay-4x5', 'Chicken Road — gameplay 4:5', 'Same animation adapted to 4:5.', ['UI animation'], '4/5'),
+  ],
+  ai: [
+    V('03-01-ai-avatar-ugc-au', 'AI avatar UGC', 'AI-generated talking-head creator with lip-synced voice and animated app UI. Delivered for AU, MY and PL.', ['AI avatar', 'Lip-sync', 'Localization']),
+    V('03-02-forest-arrow-ai-lipsync-es', 'AI lip-sync localization', 'One creative adapted to Spanish, Italian and Polish with AI dubbing and lip-sync instead of reshoots.', ['ElevenLabs', 'PixVerse', 'ES / IT / PL']),
+  ],
+  static: [
+    I('04-08-coin-strike-de', 'Coin Strike — DE'),
+    I('04-02-big-bass-uk-2', 'Big Bass — UK'),
+    I('04-07-joker-stoker-pl-9x16', 'Joker Stoker — PL', '9/16'),
+    I('04-09-coin-strike-ch-fr', 'Coin Strike — CH (FR)'),
+    I('04-11-coin-strike-nl', 'Coin Strike — NL'),
+    I('04-04-fire-joker-pl-1', 'Fire Joker — PL'),
+    I('04-01-big-bass-uk-1', 'Big Bass — UK'),
+    I('04-10-coin-strike-ch-de', 'Coin Strike — CH (DE)'),
+    I('04-12-coin-strike-fr', 'Coin Strike — FR'),
+    I('04-03-big-bass-uk-3', 'Big Bass — UK'),
+    I('04-05-fire-joker-pl-2', 'Fire Joker — PL'),
+    I('04-06-joker-stoker-pl-1x1', 'Joker Stoker — PL'),
+    I('04-13-ringo-spin', 'Ringo Spin', '1527/900'),
+  ],
+  brand: [
+    V('01-10-bigbetty-diner', 'Big Betty — “Betty’s Diner”', 'Affiliate program spec: Betty blows a bubble — BIG → BIGGER → BIGGEST — it pops into the headline, then a pulsing Join Now.', ['Affiliate', 'Character rig', 'After Effects'], '4/5'),
+    V('01-11-bigbetty-auction', 'Big Betty — “Big Deal Auction”', 'Bidding plaques rise, the gavel strikes, SOLD! — a camera flash freezes it into a halftone newspaper front page.', ['Affiliate', 'Character rig', 'Transitions'], '4/5'),
+    V('01-01-sion-promo', 'Recruitment promo — “Time to act”', 'Employer-brand promo in Ukrainian for Sion’s performance marketing team: AI-generated scenes, kinetic typography, 3D phones and transitions.', ['In-house · Sion', 'Seedance', 'Kling']),
+  ],
+};
+
+// how each work was made: ai = generated, hand = built in AE / PS, hybrid = generated footage finished by hand
+const CRAFT = {
+  'showreel': 'hand', '01-01-sion-promo': 'hybrid', '01-03-ai-companion-charlie': 'hybrid', '01-06-feenko-app': 'hybrid',
+  '01-04-ai-companion': 'hybrid', '01-05-ai-companion-face-to-face': 'hand',
+  '01-10-bigbetty-diner': 'hand', '01-11-bigbetty-auction': 'hand',
+  '01-12-bigbetty-poster-diner': 'hand', '01-13-bigbetty-poster-auction': 'hand',
+  '01-14-feenko-static-4x5': 'hybrid', '01-15-charlie-static-4x5': 'hybrid', '01-16-feenko-static-1x1': 'hybrid',
+  '01-17-feenko-notify-4x5': 'hybrid', '01-18-feenko-features-9x16': 'hybrid', '01-19-feenko-proof-1x1': 'hybrid',
+  '01-20-charlie-story-9x16': 'hybrid', '01-21-charlie-quote-1x1': 'hybrid', '01-22-charlie-discover-4x5': 'hybrid',
+  '01-23-friday-ai': 'hybrid', '01-24-claude-course-presenter': 'hybrid', '01-25-claude-course-ugc': 'hand',
+  '01-26-gameinformer-real': 'hybrid', '01-28-gameinformer-real-4x5': 'hybrid',
+  '01-27-gameinformer-continue': 'hand', '01-29-gameinformer-continue-4x5': 'hand',
+  '01-07-feenko-booth': 'ai', '01-08-feenko-ugc': 'ai', '01-09-feenko-office': 'ai',
+  '02-01-thunder-coins-xxl': 'hand', '02-02-more-energy-coins': 'hand', '02-03-coin-strike': 'hand',
+  '02-04-coin-strike': 'hand', '02-05-tower-rush': 'hand', '02-06-chicken-road-2': 'hand',
+  '02-07-sweet-bonanza-1x1': 'hand', '02-08-brick-house-bonanza': 'hybrid',
+  '02-09-chicken-road-gameplay-4x5': 'hand', '02-10-chicken-road-gameplay-9x16': 'hand',
+  '03-01-ai-avatar-ugc-au': 'ai', '03-02-forest-arrow-ai-lipsync-es': 'ai',
+};
+const BADGE = { ai: ['b-ai', 'AI'], hand: ['b-hand', 'Hand-crafted'], hybrid: ['b-hybrid', 'AI + Hand'] };
+const badge = f => CRAFT[f] ? `<span class="badge on-media ${BADGE[CRAFT[f]][0]}">${BADGE[CRAFT[f]][1]}</span>` : '';
+
+const lb = document.getElementById('lb'), lbBody = document.getElementById('lb-body');
+function openLB(html) { lbBody.innerHTML = html; lb.classList.add('open'); document.body.style.overflow = 'hidden'; document.querySelectorAll('video').forEach(v => { if (!lb.contains(v)) v.pause(); }); }
+function closeLB() { lb.classList.remove('open'); lbBody.innerHTML = ''; document.body.style.overflow = ''; heroVideo.play().catch(() => {}); }
+lb.addEventListener('click', e => { if (e.target === lb || e.target.tagName === 'BUTTON') closeLB(); });
+addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+const playVideo = f => openLB(`<video src="media/${f}.mp4" poster="media/${f}.jpg" controls autoplay playsinline></video>`);
+
+const canHover = matchMedia('(hover: hover)').matches;
+function card(item) {
+  const el = document.createElement('article');
+  el.className = 'card';
+  const media = `<div class="media" style="aspect-ratio:${item.ratio}"><img src="media/${item.file}.jpg" alt="${item.title}" loading="lazy">${badge(item.file)}${item.type === 'video' ? '<span class="play"></span>' : ''}</div>`;
+  const body = item.desc || item.tags ? `<div class="card-body"><h3>${item.title}</h3>${item.desc ? `<p>${item.desc}</p>` : ''}${item.tags ? `<div class="tags">${item.tags.map(t => `<span>${t}</span>`).join('')}</div>` : ''}</div>` : '';
+  el.innerHTML = media + body;
+  const m = el.querySelector('.media');
+  if (item.type === 'video') {
+    m.addEventListener('click', () => playVideo(item.file));
+    if (canHover) {
+      let v;
+      m.addEventListener('mouseenter', () => {
+        if (!v) { v = document.createElement('video'); Object.assign(v, { src: `media/${item.file}.mp4`, muted: true, loop: true, playsInline: true, preload: 'auto' }); m.appendChild(v); }
+        v.currentTime = 0; v.play().then(() => m.classList.add('playing')).catch(() => {});
+      });
+      m.addEventListener('mouseleave', () => { m.classList.remove('playing'); v && v.pause(); });
+    }
+  } else {
+    m.addEventListener('click', () => openLB(`<img src="media/${item.file}.jpg" alt="${item.title}">`));
+  }
+  return el;
+}
+document.querySelectorAll('[data-list]').forEach(box => DATA[box.dataset.list].forEach(it => box.appendChild(card(it))));
+
+document.querySelectorAll('.concept img').forEach(img => img.addEventListener('click', () => openLB(`<img src="${img.getAttribute('src')}" alt="${img.alt}">`)));
+
+const hero = document.querySelector('.hero-reel'), heroVideo = hero.querySelector('video');
+hero.addEventListener('click', () => { heroVideo.pause(); playVideo(hero.dataset.file); });
+</script>
+</body>
+</html>
